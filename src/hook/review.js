@@ -4,13 +4,14 @@ import {
   Flex,
   SmallHeading,
   RadioButton,
-  RadioButtonLabel,
   Item,
   Container,
+  Form,
+  Wrapper,
 } from "./Element";
 const Review = () => {
-  const [ui, setUi] = useState(1);
-  const [all, setAll] = useState(1);
+  const [ui, setUi] = useState();
+  const [all, setAll] = useState();
   const handleUi = (event) => {
     const value = event.target.value;
     setUi(value);
@@ -19,38 +20,20 @@ const Review = () => {
     const value = event.target.value;
     setAll(value);
   };
+  console.log("Latest value:", ui);
   return (
     <Container>
-      <Heading>Give us feedback.</Heading>
-      <SmallHeading>Rate the UI</SmallHeading>
-      <Flex>
-        <Item>
-          <RadioButton
-            type="radio"
-            name="radio"
-            value="optionA"
-            checked={ui === "optionA"}
-            onChange={(event) => handleUi(event)}
-          />
-          <RadioButtonLabel />
-          <div>1</div>
-        </Item>
-        <Item>
-          <RadioButton
-            type="radio"
-            name="radio"
-            value="optionB"
-            checked={ui === "optionB"}
-            onChange={(event) => handleUi(event)}
-          />
-          <RadioButtonLabel />
-          <div>2</div>
-        </Item>
-      </Flex>
+      <Heading> Give us feedback. </Heading>
+      <Wrapper>
+        <SmallHeading> Rate the UI </SmallHeading>
+        <Form></Form>
+      </Wrapper>
 
-      {/* second polling */}
-      <SmallHeading>Rate the UI</SmallHeading>
-      <Flex></Flex>
+      <Wrapper>
+        {/* second polling */}
+        <SmallHeading> Rate the UI </SmallHeading>
+        <Flex> </Flex>
+      </Wrapper>
     </Container>
   );
 };
